@@ -59,7 +59,7 @@
 <div class="header">
     <div class="app-info">
         <img src="https://mapmarkerpro.github.io/icon.webp" alt="App Icon" width="100" height="100">
-        <h1>Float Tube</h1>
+        <h1>地图标记</h1>
         <p>地图标记-记录位置,收藏打卡,您的私人地图</p>
         <a href="https://apps.apple.com/us/app/id6480926284" target="_blank"><img src="https://mapmarkerpro.github.io/ios-download.webp" alt="iOS Download" width="120" height="38"></a>
         <!-- <a href="https://play.google.com/store/apps/details?id=com.k.video.tube" target="_blank"><img src="https://mapmarkerpro.github.io/android-download.webp" alt="Android Download" width="120" height="38"></a> -->
@@ -91,6 +91,8 @@
         <li><a href="https://mapmarkerpro.github.io/PrivacyPolicy.html" target="_blank">Privacy</a></li>
         <br>
         <li><a href="https://mapmarkerpro.github.io/EULA.html" target="_blank">EULA</a></li>
+        <br>
+        <li><p>联系我们：mapmarkpro@outlook.com</p></li>
         <br>
         <li><p>备案号：京ICP备17000378号-3A</p></li>
     </ul>
