@@ -52,7 +52,7 @@
         padding: 20px 0;
     }
     .space {
-    margin-right: 10px; /* 右侧添加 10 像素的空白 */
+    margin-right: 50px; /* 右侧添加 10 像素的空白 */
 }
 </style>
 </head>
