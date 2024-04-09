@@ -51,9 +51,6 @@
         text-align: left;
         padding: 20px 0;
     }
-    .space {
-    margin-right: 50px; /* 右侧添加 10 像素的空白 */
-}
 </style>
 </head>
 <body>
@@ -91,8 +88,9 @@
 
 <div >
     <ul >
-        <li><a href="https://mapmarkerpro.github.io/PrivacyPolicy.html" target="_blank">Privacy</a> <span class="space"></span> <a href="https://mapmarkerpro.github.io/EULA.html" target="_blank">EULA</a></li>
-        <br>        <li><p>联系我们：mapmarkpro@outlook.com</p></li>
+        <li><a href="https://mapmarkerpro.github.io/PrivacyPolicy.html" target="_blank">Privacy</a></li>
+        <li><a href="https://mapmarkerpro.github.io/EULA.html" target="_blank">EULA</a></li>
+        <li><p>联系我们：mapmarkpro@outlook.com</p></li>
         <li><p>备案号：京ICP备17000378号-3A</p></li>
     </ul>
 </div>
