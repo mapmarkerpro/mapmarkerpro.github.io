@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App 介绍</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 25px;
+        }
+        .app-name {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #333;
+        }
+        .app-desc {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .download-buttons a {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 80%;
+            text-align: center;
+        }
+        .android {
+            background-color: #34a853;
+        }
+        .android:hover {
+            background-color: #2c8c43;
+        }
+        .ios {
+            background-color: #007aff;
+        }
+        .ios:hover {
+            background-color: #0066cc;
+        }
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="icon.png" alt="App 图标" class="app-icon">
+        <div class="app-name">应用名称</div>
+        <div class="app-desc">这是一款简单易用的移动应用，提供丰富功能，满足您的需求。</div>
+        
+        <div class="download-buttons">
+            <a href="#" class="android">下载 Android 版</a>
+            <a href="#" class="ios">下载 iOS 版</a>
+        </div>
+        
+        <div class="carousel-container">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel" id="carousel">
+                <img src="screenshot1.png" alt="效果图 1">
+                <img src="screenshot2.png" alt="效果图 2">
+                <img src="screenshot3.png" alt="效果图 3">
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+    <script>
+        let index = 0;
+        function moveSlide(direction) {
+            const carousel = document.getElementById('carousel');
+            const slides = document.querySelectorAll('.carousel img');
+            index = (index + direction + slides.length) % slides.length;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+        
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.getElementById('carousel').addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+        });
+        
+        document.getElementById('carousel').addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].clientX;
+            if (touchEndX < touchStartX) {
+                moveSlide(1);
+            } else if (touchEndX > touchStartX) {
+                moveSlide(-1);
+            }
+        });
+        
+        function autoSlide() {
+            moveSlide(1);
+            setTimeout(autoSlide, 3000);
+        }
+        setTimeout(autoSlide, 3000);
+    </script>
+</body>
+</html>
