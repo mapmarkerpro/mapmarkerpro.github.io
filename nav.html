@@ -41,11 +41,13 @@
         .app-desc {
             font-size: 15px;
             color: #666;
-            margin: 10px;
+            margin-bottom: 20px;
+            margin-left:10px;
+            margin-right:10px;
             line-height: 1.5;
             text-align: left;
         }
-        .download-buttons a, .nav-buttons a {
+        .download-buttons a {
             display: block;
             margin: 10px auto;
             padding: 12px 20px;
@@ -61,9 +63,25 @@
         .android:hover { background-color: #2c8c43; }
         .ios { background-color: #007aff; }
         .ios:hover { background-color: #0066cc; }
-        .baidu { background-color: #e41d1d; }
-        .gaode { background-color: #06c; }
+
+        .nav-buttons {
+            margin-top: 20px;
+        }
+        .nav-buttons a {
+            display: inline-block;
+            margin: 8px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .baidu { background-color: #3385ff; }
+        .gaode { background-color: #0091ff; }
+        .google { background-color: #4285f4; }
         .apple { background-color: #555; }
+
         .carousel-container {
             overflow: hidden;
             position: relative;
@@ -73,15 +91,8 @@
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel img {
-            width: 100%;
-            border-radius: 10px;
-            flex-shrink: 0;
-        }
+        .carousel { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel img { width: 100%; border-radius: 10px; flex-shrink: 0; }
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -93,7 +104,6 @@
             cursor: pointer;
             border-radius: 50%;
             font-size: 18px;
-            transition: background 0.3s;
             width: 40px;
             height: 40px;
             display: flex;
@@ -103,6 +113,7 @@
         .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
         .prev { left: 10px; }
         .next { right: 10px; }
+
         .footer {
             margin-top: 20px;
             font-size: 14px;
@@ -188,3 +199,4 @@
     </script>
 </body>
 </html>
+
