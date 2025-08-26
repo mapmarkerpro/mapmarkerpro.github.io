@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -214,3 +213,4 @@
     </script>
 </body>
 </html>
+
