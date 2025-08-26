@@ -1,98 +1,216 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Introduction</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f2f2f2; /* 设置整个页面的背景颜色 */
-    }
-    .container {
-        padding: 0 20px; /* 在左右两侧添加20像素的边距 */
-    }
-    .header {
-        background-color: #f2f2f2;
-        text-align: center;
-        padding: 20px 0;
-    }
-    .screenshot { width: 300px; }
-    .download-buttons {
-        margin-top: 10px; /* 添加间距 */
-    }
-    .app-info {
-        margin-bottom: 20px;
-    }
-/*    .app-info img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-    }*/
-    .screenshots {
-        background-color: #f2f2f2;
-        overflow-x: auto;
-        white-space: nowrap;
-        margin-bottom: 20px;
-        width: 90%; /* 设置宽度为80% */
-        margin: 0 auto; /* 水平居中 */
-    }
-    .screenshot {
-        display: inline-block;
-        margin-right: 10px;
-    }
-    .description {
-        padding: 20px;
-        background-color: #f2f2f2; /* 设置详细介绍区域的背景颜色 */
-    }
-    .footer {
-        color: #000;
-        text-align: left;
-        padding: 20px 0;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图标记</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 25px;
+        }
+        .app-name {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #333;
+        }
+        .app-subtite {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .app-desc {
+            font-size: 15px;
+            color: #666;
+            margin: 10px;
+            line-height: 1.5;
+            text-align: left;
+        }
+        .download-buttons a, .nav-buttons a {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-align: center;
+        }
+        .android { background-color: #34a853; }
+        .android:hover { background-color: #2c8c43; }
+        .ios { background-color: #007aff; }
+        .ios:hover { background-color: #0066cc; }
+        .gaode { background: #4CAF50; }
+        .baidu { background: #e91e63; }
+        .google { background: #2196F3; }
+        .apple { background: #FF9800; }
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .footer a {
+            color: #007aff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <img src="https://mapmarkerpro.github.io/icon.webp" alt="App 图标" class="app-icon">
+        <div class="app-name">地图标记</div>
+        <div class="app-subtite">
+            记录位置/回访日志、地点收藏、销售旅行行程记录<br>
+        </div>
+        <div class="app-desc">
+            ◉ 快速位置标记，一键保存当前位置,支持离线使用<br>
+            ◉ 分类与标签管理，自定义分组：客户、项目、巡检、旅行等多种场景<br>
+            ◉ 任务与提醒，每个标记点可添加文字备注、计划任务<br>
+            ◉ 导航与路线规划，支持多点路线规划，优化外勤及出差路线<br>
+            ◉ <b>导航</b> – 选择您喜欢的地图（百度、高德或苹果）轻松导航.
+        </div>
+      
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/app/id6740091740" class="ios">跳转到AppStore下载</a>
+        </div>
 
-<!-- 上半部分：App信息 -->
-<div class="header">
-    <div class="app-info">
-        <img src="https://mapmarkerpro.github.io/icon.webp" alt="App Icon" width="100" height="100">
-        <h1>地图标记</h1>
-        <p>地图标记-记录位置,收藏打卡,您的私人地图</p>
-        <a href="https://apps.apple.com/us/app/id6480926284" target="_blank"><img src="https://mapmarkerpro.github.io/ios-download.webp" alt="iOS Download" width="120" height="38"></a>
-        <!-- <a href="https://play.google.com/store/apps/details?id=com.k.video.tube" target="_blank"><img src="https://mapmarkerpro.github.io/android-download.webp" alt="Android Download" width="120" height="38"></a> -->
+        <div id="nav-section" class="nav-buttons" style="display:none;">
+            <a href="#" id="baiduNav" class="baidu">百度地图</a>
+            <a href="#" id="gaodeNav" class="gaode">高德地图</a>
+            <a href="#" id="googleNav" class="google">Google Maps</a>
+            <a href="#" id="appleNav" class="apple">Apple Maps</a>
+        </div>
+        
+        <div class="carousel-container">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel" id="carousel">
+                <img src="https://mapmarkerpro.github.io/1.webp" alt="1">
+                <img src="https://mapmarkerpro.github.io/2.webp" alt="2">
+                <img src="https://mapmarkerpro.github.io/3.webp" alt="3">
+                <img src="https://mapmarkerpro.github.io/4.webp" alt="4">
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        
+        <div class="footer">
+            <a href="#">Privacy Policy</a> | <a href="#">EULA</a>
+        </div>
     </div>
-</div>
+    <script>
+        // 轮播逻辑
+        let index = 0;
+        function moveSlide(direction) {
+            const carousel = document.getElementById('carousel');
+            const slides = document.querySelectorAll('.carousel img');
+            index = (index + direction + slides.length) % slides.length;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+        document.getElementById('carousel').addEventListener('touchstart', e => touchStartX = e.touches[0].clientX);
+        document.getElementById('carousel').addEventListener('touchend', e => {
+            let touchEndX = e.changedTouches[0].clientX;
+            if (touchEndX < touchStartX) moveSlide(1);
+            else if (touchEndX > touchStartX) moveSlide(-1);
+        });
+        setInterval(() => moveSlide(1), 3000);
 
-<!-- 中部：截图滑动区域 -->
-<div class="screenshots">
-    <img class="screenshot" src="https://mapmarkerpro.github.io/3.webp" alt="Screenshot 1" >
-    <img class="screenshot" src="https://mapmarkerpro.github.io/4.webp" alt="Screenshot 2" >
-    <img class="screenshot" src="https://mapmarkerpro.github.io/1.webp" alt="Screenshot 3" >
-    <img class="screenshot" src="https://mapmarkerpro.github.io/2.webp" alt="Screenshot 4" >
-</div>
+        // 导航按钮逻辑
+        const params = new URLSearchParams(window.location.search);
+        const lat = params.get('lat');
+        const lng = params.get('lng');
 
-<!-- 下半部分：App详细介绍 -->
-<div class="description">
-    <h2>使用场景：</h2>
-    <p>- 拜访客服、记录好吃好玩位置、线下探店、户外钓鱼、户外活动、工程选址等！</p>
-    <p>主要功能：</p>
-    <!-- 添加更多详细介绍 -->
-	<p>- 地图标记：将您最喜爱的地点标记在地图上，随时随地记录您的足迹和发现。</p>
-	<p>- 位置记录：轻松记录您所在位置，以便您日后轻松找到它们，无论是美丽的风景、好吃的餐厅还是有趣的景点。</p>
-	<p>- 收藏打卡：将您最喜欢的地点收藏起来，方便快捷地重复访问。</p>
-	<p>- 私人地图：打造属于您自己的私人地图，记录您的个人趣味和独特发现，与朋友分享您的旅行故事和精彩瞬间。</p>
-</div>
+        function tryOpenApp(appUrl, fallbackUrl) {
+            const start = Date.now();
+            window.location.href = appUrl;
+            setTimeout(() => {
+                if (Date.now() - start < 1500) {
+                    window.location.href = fallbackUrl; // 失败则跳网页版
+                }
+            }, 1000);
+        }
 
-<div >
-    <ul >
-        <li><a href="https://mapmarkerpro.github.io/PrivacyPolicy.html" target="_blank">Privacy</a></li>
-        <li><a href="https://mapmarkerpro.github.io/EULA.html" target="_blank">EULA</a></li>
-        <li><p>联系我们：mapmarkpro@outlook.com</p></li>
-        <li><p>备案号：京ICP备17000378号-3A</p></li>
-    </ul>
-</div>
+        if (lat && lng) {
+            document.getElementById('nav-section').style.display = 'block';
+
+            document.getElementById('baiduNav').addEventListener('click', e => {
+                e.preventDefault();
+                tryOpenApp(
+                    `baidumap://map/direction?destination=latlng:${lat},${lng}|name=目的地&mode=driving`,
+                    `https://map.baidu.com/mobile/webapp/index/index/#index/page/vr/?latlng=${lat},${lng}`
+                );
+            });
+
+            document.getElementById('gaodeNav').addEventListener('click', e => {
+                e.preventDefault();
+                tryOpenApp(
+                    `amapuri://route/plan/?dlat=${lat}&dlon=${lng}&dname=目的地&dev=0&t=0`,
+                    `https://uri.amap.com/navigation?to=${lng},${lat},目的地`
+                );
+            });
+
+            document.getElementById('googleNav').href = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+            document.getElementById('appleNav').href = `http://maps.apple.com/?daddr=${lat},${lng}`;
+        }
+    </script>
 </body>
 </html>
