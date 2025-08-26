@@ -117,28 +117,28 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://mapmarkerpro.github.io/videotube.webp" alt="App 图标" class="app-icon">
-        <div class="app-name">Video Tube</div>
+        <img src="https://mapmarkerpro.github.io/icon.webp" alt="App 图标" class="app-icon">
+        <div class="app-name">地图标记</div>
         <div class="app-subtite">
-            YouTube PiP Adblock & Offline Music Player<br>
+            记录位置/回访日志、地点收藏、销售旅行行程记录<br>
         </div>
         <div class="app-desc">
-            ◉ Background Playback – Keep videos and music playing even when switching apps.<br>
-            ◉ PiP Mode – Watch videos in a floating window while browsing other pages.<br>
-            ◉ Fast & Lightweight – Smooth and efficient browsing experience.<br>
-            ◉ Ad Blocking – Enjoy a cleaner, ad-free web experience.<br>
-            ◉ <b>Navigation</b> – Choose your preferred map (Baidu, Gaode, or Apple) to navigate easily.
+            ◉ 快速位置标记，一键保存当前位置,支持离线使用<br>
+            ◉ 分类与标签管理，自定义分组：客户、项目、巡检、旅行等多种场景<br>
+            ◉ 任务与提醒，每个标记点可添加文字备注、计划任务<br>
+            ◉ 导航与路线规划，支持多点路线规划，优化外勤及出差路线<br>
+            ◉ <b>导航</b> – 选择您喜欢的地图（百度、高德或苹果）轻松导航.
         </div>
       
         <div class="download-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.k.video.tube.float" class="android">Download for Android</a>
             <a href="https://apps.apple.com/app/id6740091740" class="ios">Download for iOS</a>
         </div>
 
-        <div class="nav-buttons">
-            <a href="#" class="baidu" onclick="openMap('baidu')">Open in Baidu Map</a>
-            <a href="#" class="gaode" onclick="openMap('gaode')">Open in Gaode Map</a>
-            <a href="#" class="apple" onclick="openMap('apple')">Open in Apple Maps</a>
+        <div id="nav-section" class="nav-buttons" style="display:none;">
+            <a href="#" id="baiduNav" class="baidu">百度地图</a>
+            <a href="#" id="gaodeNav" class="gaode">高德地图</a>
+            <a href="#" id="googleNav" class="google">Google Maps</a>
+            <a href="#" id="appleNav" class="apple">Apple Maps</a>
         </div>
         
         <div class="carousel-container">
@@ -176,24 +176,17 @@
         });
         setInterval(() => moveSlide(1), 3000);
 
-        // 导航功能
-        function openMap(type) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const lat = urlParams.get('lat') || '39.908823';
-            const lng = urlParams.get('lng') || '116.39747';
-            let url = '';
-            switch (type) {
-                case 'baidu':
-                    url = `baidumap://map/direction?destination=${lat},${lng}&mode=driving`;
-                    break;
-                case 'gaode':
-                    url = `amapuri://route/plan/?dlat=${lat}&dlon=${lng}&dname=Destination&dev=0&t=0`;
-                    break;
-                case 'apple':
-                    url = `http://maps.apple.com/?daddr=${lat},${lng}&dirflg=d`;
-                    break;
-            }
-            window.location.href = url;
+        // 导航按钮逻辑
+        const params = new URLSearchParams(window.location.search);
+        const lat = params.get('lat');
+        const lng = params.get('lng');
+
+        if (lat && lng) {
+            document.getElementById('nav-section').style.display = 'block';
+            document.getElementById('baiduNav').href = `baidumap://map/direction?destination=latlng:${lat},${lng}|name=目的地&mode=driving`;
+            document.getElementById('gaodeNav').href = `amapuri://route/plan/?dlat=${lat}&dlon=${lng}&dname=目的地&dev=0&t=0`;
+            document.getElementById('googleNav').href = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+            document.getElementById('appleNav').href = `http://maps.apple.com/?daddr=${lat},${lng}`;
         }
     </script>
 </body>
