@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Tube</title>
+    <title>地图标记 - 导航</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -179,10 +179,35 @@
         const lat = params.get('lat');
         const lng = params.get('lng');
 
+        function tryOpenApp(appUrl, fallbackUrl) {
+            const start = Date.now();
+            window.location.href = appUrl;
+            setTimeout(() => {
+                if (Date.now() - start < 1500) {
+                    window.location.href = fallbackUrl; // 失败则跳网页版
+                }
+            }, 1000);
+        }
+
         if (lat && lng) {
             document.getElementById('nav-section').style.display = 'block';
-            document.getElementById('baiduNav').href = `baidumap://map/direction?destination=latlng:${lat},${lng}|name=目的地&mode=driving`;
-            document.getElementById('gaodeNav').href = `amapuri://route/plan/?dlat=${lat}&dlon=${lng}&dname=目的地&dev=0&t=0`;
+
+            document.getElementById('baiduNav').addEventListener('click', e => {
+                e.preventDefault();
+                tryOpenApp(
+                    `baidumap://map/direction?destination=latlng:${lat},${lng}|name=目的地&mode=driving`,
+                    `https://map.baidu.com/mobile/webapp/index/index/#index/page/vr/?latlng=${lat},${lng}`
+                );
+            });
+
+            document.getElementById('gaodeNav').addEventListener('click', e => {
+                e.preventDefault();
+                tryOpenApp(
+                    `amapuri://route/plan/?dlat=${lat}&dlon=${lng}&dname=目的地&dev=0&t=0`,
+                    `https://uri.amap.com/navigation?to=${lng},${lat},目的地`
+                );
+            });
+
             document.getElementById('googleNav').href = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
             document.getElementById('appleNav').href = `http://maps.apple.com/?daddr=${lat},${lng}`;
         }
