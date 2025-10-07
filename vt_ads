@@ -1,16 +1,16 @@
 {
 "app":{
-"id":"6746458305",
-"count":1,
-"icon":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/45/bc/4d/45bc4d12-cd42-a49c-8e1e-df21959210fd/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/180x180bb.png",
-"cnname":"我的地图-地点收藏、记录位置、旅行路线规划、行程记录",
-"cnsubTitle":"标记地点，规划路线，记录足迹，旅行旅游，点亮您的地图。",
-"enname":"My Map－Marker,Save,Track&Plan",
-"ensubTitle":"Plan routes,Pin your places",
+"id":"6752957002",
+"count":2,
+"icon":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/b2/ef/ffb2ef06-f692-849d-2402-42576caff91f/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/180x180bb.png",
+"cnname":"打卡本-自律日记、日常记录",
+"cnsubTitle":"运动健身、学习打卡、习惯追踪、饮食笔记、自律养成、频次统计",
+"enname":"Habitly—Lists,Calendar,History",
+"ensubTitle":"Check in fast, check in simple",
 "covers":[
-"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d6/71/cf/d671cf1d-733c-c760-fe7d-b2c06ca6b5fd/pluse4.png/497x883bb.jpg",
-"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/eb/49/9d/eb499d1b-32e2-2adf-edd0-a0cc421137ec/pluse3.png/497x883bb.jpg",
-"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1a/70/24/1a7024f9-8e55-7284-2b57-0b3ca4d865e7/plusE1.png/497x883bb.jpg"
+"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bc/9a/3b/bc9a3b7d-d829-2a36-2769-4e3875a3f07a/e3.png/497x883bb.jpg",
+"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/16/68/a5/1668a59a-45e3-6bf4-c444-5bd8dbbee9cc/e2.png/497x883bb.jpg",
+"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/63/5a/94/635a9491-1018-e120-40bb-fb3baade6445/e1.png/497x883bb.jpg"
 ]
 },
 "ads_s_t":10,
