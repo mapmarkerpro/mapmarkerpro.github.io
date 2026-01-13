@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoCamera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 25px;
+        }
+        .app-name {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #333;
+        }
+        .app-subtite {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: center; /* Align the description to the left */
+        }
+        .app-desc {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+            margin-left:10px;
+            margin-right:10px;
+            line-height: 1.5;
+            text-align: left; /* Align the description to the left */
+        }
+        .download-buttons a {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-align: center;
+        }
+        .android {
+            background-color: #34a853;
+        }
+        .android:hover {
+            background-color: #2c8c43;
+        }
+        .ios {
+            background-color: #007aff;
+        }
+        .ios:hover {
+            background-color: #0066cc;
+        }
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .footer a {
+            color: #007aff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://mapmarkerpro.github.io/lvicon.webp" alt="App 图标" class="app-icon">
+        <div class="app-name">死了么</div>
+        <div class="app-subtite">
+            无网络实时海拔与气压计。<br>
+        </div>
+        
+        <div class="app-desc">
+          这是一款为独居生活设计的轻量记录工具。<br>
+          每天只需一次简单的选择，记录你的当前状态与心情，让独处的日子更安心、更有掌控感。<br>
+          没有复杂功能，也不打扰生活。<br>
+          当你愿意记录时，它就在；当你不想被打断时，它保持安静。<br>
+          适合独居者、长期独处的人，<br>
+          也适合想要更好照顾自己的人。<br>
+        </div>
+      
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/app/id6757758509" class="ios">Download for iOS</a>
+        </div>
+        
+        <div class="carousel-container">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel" id="carousel">
+
+                <img src="https://mapmarkerpro.github.io/lv1.webp" alt="1">
+                <img src="https://mapmarkerpro.github.io/lv2.webp" alt="2">
+                <img src="https://mapmarkerpro.github.io/lv3.webp" alt="3">          
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        
+        <div class="footer">
+            <a href="#">Privacy Policy</a> | <a href="#">EULA</a>
+        </div>
+    </div>
+    <script>
+        let index = 0;
+        function moveSlide(direction) {
+            const carousel = document.getElementById('carousel');
+            const slides = document.querySelectorAll('.carousel img');
+            index = (index + direction + slides.length) % slides.length;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+        
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.getElementById('carousel').addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+        });
+        
+        document.getElementById('carousel').addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].clientX;
+            if (touchEndX < touchStartX) {
+                moveSlide(1);
+            } else if (touchEndX > touchStartX) {
+                moveSlide(-1);
+            }
+        });
+        
+        function autoSlide() {
+            moveSlide(1);
+            setTimeout(autoSlide, 3000);
+        }
+        setTimeout(autoSlide, 3000);
+    </script>
+</body>
+</html>
